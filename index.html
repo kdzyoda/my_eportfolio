@@ -509,7 +509,7 @@
             box-shadow: 0 10px 25px rgba(100, 255, 218, 0.3);
         }
 
-        
+
 
         /* Responsive Design */
         @media (max-width: 768px) {
@@ -604,7 +604,7 @@
                         </div>
                         <h1 class="profile-name">Khizha Duquesa</h1>
                         <p class="profile-title">Technical Support</p>
-                        <p class="profile-location">📍 Butuan City, Agusan del Norte, Philippines</p>
+                        <p class="profile-location">📍 Butuan City, Philippines</p>
 
                         <div class="social-links">
                             <a href="https://github.com/kdzyoda" title="GitHub"><i class="fab fa-github"></i></a>
@@ -1142,14 +1142,23 @@
 
 
                     <!-- Contact Section -->
+                    <!-- Contact Section -->
                     <section id="contact" class="section">
-                        <h2 class="section-title">Get In Touch</h2>
+                        <h2 class="section-title">Contact Me</h2>
                         <p class="about-text" style="margin-bottom: 30px;">
-                            I'm always interested in hearing about new opportunities and exciting projects.
-                            Whether you have a question or just want to say hi, feel free to reach out!
+                            Thank you for visiting my e-portfolio. If you would like to connect, this section provides a
+                            direct way to reach me via email.
+                            I am highly responsive and open to receiving your feedback. I also welcome opportunities to
+                            collaborate on new projects or initiatives.
+                            Whether you have inquiries, opportunities, or simply wish to connect, please feel free to
+                            get in touch.
                         </p>
 
-                        <form class="contact-form">
+
+                        <form id="contact-form" class="contact-form">
+                            <!-- Your Access Key -->
+                            <input type="hidden" name="access_key" value="6c31c25b-85fe-4bc8-80b4-c5193f3cd92b">
+
                             <div class="form-group">
                                 <label for="name">Name</label>
                                 <input type="text" id="name" name="name" placeholder="Your Name" required>
@@ -1168,7 +1177,38 @@
 
                             <button type="submit" class="submit-btn">Send Message</button>
                         </form>
+
+                        <!-- Success Message -->
+                        <p id="form-status" style="margin-top:15px; font-weight: bold; color: green; display: none;">
+                            ✅ Message delivered! Thank you for reaching out!
+                        </p>
                     </section>
+
+                    <script>
+                        const form = document.getElementById("contact-form");
+                        const status = document.getElementById("form-status");
+
+                        form.addEventListener("submit", async (e) => {
+                            e.preventDefault();
+
+                            const formData = new FormData(form);
+
+                            let response = await fetch("https://api.web3forms.com/submit", {
+                                method: "POST",
+                                body: formData
+                            });
+
+                            if (response.ok) {
+                                status.style.display = "block";
+                                form.reset();
+                            } else {
+                                status.style.display = "block";
+                                status.style.color = "red";
+                                status.innerText = "❌ Oops! Something went wrong. Please try again.";
+                            }
+                        });
+                    </script>
+
                 </div>
             </div>
         </div>
