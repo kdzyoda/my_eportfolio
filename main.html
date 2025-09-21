@@ -1,0 +1,1255 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>k h i z | p o r t f o l i o</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #0a0a0a;
+            color: #ffffff;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Particles Background */
+        #particles-js {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: -1;
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        .header {
+            position: sticky;
+            top: 0;
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid #333;
+            z-index: 1000;
+            padding: 15px 0;
+        }
+
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: #64ffda;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: 400;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: #64ffda;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #64ffda;
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* Main Content */
+        .main {
+            padding: 60px 0;
+        }
+
+        .content-grid {
+            display: grid;
+            grid-template-columns: 300px 1fr;
+            gap: 40px;
+            align-items: start;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            position: sticky;
+            top: 120px;
+        }
+
+        .profile-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 30px;
+            text-align: center;
+            backdrop-filter: blur(20px);
+            margin-bottom: 20px;
+        }
+
+        .profile-image {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            margin: 0 auto 20px;
+            border: 3px solid #64ffda;
+            overflow: hidden;
+        }
+
+        .profile-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .profile-name {
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: #ffffff;
+        }
+
+        .profile-title {
+            color: #64ffda;
+            font-size: 16px;
+            font-weight: 500;
+            margin-bottom: 15px;
+        }
+
+        .profile-location {
+            color: #888;
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #ffffff;
+            font-size: 18px;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background: #64ffda;
+            color: #000;
+            transform: translateY(-3px);
+        }
+
+        /* Skills Card */
+        .skills-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 30px;
+            backdrop-filter: blur(20px);
+        }
+
+        .skills-card h3 {
+            color: #ffffff;
+            font-size: 18px;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        .skill-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .skill-name {
+            color: #ffffff;
+            font-size: 14px;
+        }
+
+        .skill-percentage {
+            color: #64ffda;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .skill-bar {
+            width: 100%;
+            height: 6px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 3px;
+            margin-top: 5px;
+            overflow: hidden;
+        }
+
+        .skill-progress {
+            height: 100%;
+            background: linear-gradient(90deg, #64ffda 0%, #4fd1c7 100%);
+            border-radius: 3px;
+            transition: width 0.8s ease;
+        }
+
+        /* Main Content Area */
+        .content {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 40px;
+            backdrop-filter: blur(20px);
+        }
+
+        .section {
+            margin-bottom: 50px;
+        }
+
+        .section:last-child {
+            margin-bottom: 0;
+        }
+
+        .section-title {
+            font-size: 28px;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 30px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(90deg, #64ffda 0%, #4fd1c7 100%);
+            border-radius: 2px;
+        }
+
+        /* About Section */
+        .about-text {
+            color: #cccccc;
+            font-size: 16px;
+            line-height: 1.8;
+            margin-bottom: 30px;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+        }
+
+        .stat-number {
+            font-size: 32px;
+            font-weight: 700;
+            color: #64ffda;
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .stat-label {
+            color: #888;
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        /* Experience Timeline */
+        .timeline {
+            position: relative;
+            padding-left: 30px;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 15px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(180deg, #64ffda 0%, rgba(100, 255, 218, 0.1) 100%);
+        }
+
+        .timeline-item {
+            position: relative;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 25px;
+            backdrop-filter: blur(10px);
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -37px;
+            top: 25px;
+            width: 12px;
+            height: 12px;
+            background: #64ffda;
+            border-radius: 50%;
+            border: 3px solid #0a0a0a;
+        }
+
+        .job-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: #ffffff;
+            margin-bottom: 5px;
+        }
+
+        .company {
+            color: #64ffda;
+            font-size: 16px;
+            font-weight: 500;
+            margin-bottom: 5px;
+        }
+
+        .job-period {
+            color: #888;
+            font-size: 14px;
+            margin-bottom: 15px;
+        }
+
+        .job-description {
+            color: #cccccc;
+            font-size: 14px;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        .tech-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .tech-tag {
+            background: rgba(100, 255, 218, 0.1);
+            color: #64ffda;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 500;
+            border: 1px solid rgba(100, 255, 218, 0.2);
+        }
+
+        /* Projects Grid */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
+
+        .project-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 25px;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            border-color: #64ffda;
+            box-shadow: 0 10px 30px rgba(100, 255, 218, 0.1);
+        }
+
+        .project-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: #ffffff;
+            margin-bottom: 10px;
+        }
+
+        .project-description {
+            color: #cccccc;
+            font-size: 14px;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .project-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .project-link {
+            color: #64ffda;
+            font-size: 18px;
+            transition: all 0.3s ease;
+        }
+
+        .project-link:hover {
+            color: #ffffff;
+            transform: scale(1.2);
+        }
+
+        /* Contact Form */
+        .contact-form {
+            display: grid;
+            gap: 20px;
+            max-width: 600px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-group label {
+            color: #ffffff;
+            font-size: 14px;
+            font-weight: 500;
+            margin-bottom: 8px;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            padding: 15px;
+            color: #ffffff;
+            font-size: 14px;
+            font-family: inherit;
+            transition: all 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #64ffda;
+            box-shadow: 0 0 0 3px rgba(100, 255, 218, 0.1);
+        }
+
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+            color: #888;
+        }
+
+        .submit-btn {
+            background: linear-gradient(135deg, #64ffda 0%, #4fd1c7 100%);
+            color: #000;
+            border: none;
+            border-radius: 10px;
+            padding: 15px 30px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            justify-self: start;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(100, 255, 218, 0.3);
+        }
+
+        
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .content-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .sidebar {
+                position: static;
+                order: -1;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        /* Smooth animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .section {
+            animation: fadeInUp 0.6s ease-out;
+        }
+
+        /* Scrollbar styling */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #1a1a1a;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #64ffda;
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #4fd1c7;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="particles-js"></div>
+
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav container">
+            <div class="logo">@khizha.xyz</div>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#certifications">Certifications</a></li>
+                <li><a href="#references">References</a></li>
+                <li><a href="#satisfaction">Testimonials</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main">
+        <div class="container">
+            <div class="content-grid">
+                <!-- Sidebar -->
+                <aside class="sidebar">
+                    <div class="profile-card">
+                        <div class="profile-image">
+                            <img src="DUQUESA_KD.png" alt="Khizha Duquesa">
+                        </div>
+                        <h1 class="profile-name">Khizha Duquesa</h1>
+                        <p class="profile-title">Technical Support</p>
+                        <p class="profile-location">📍 Butuan City, Agusan del Norte, Philippines</p>
+
+                        <div class="social-links">
+                            <a href="https://github.com/kdzyoda" title="GitHub"><i class="fab fa-github"></i></a>
+                            <a href="https://www.linkedin.com/in/khizharhizhaneduquesa/?trk=public-profile-join-page"
+                                title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                            <a href="https://ph.pinterest.com/lunaf0x/" title="Pinterest"><i
+                                    class="fab fa-pinterest"></i></a>
+                            <a href="https://facebook.com/khizloml" title="Facebook"><i class="fab fa-facebook"></i></a>
+                        </div>
+                    </div>
+
+                    <div class="skills-card">
+                        <h3>Skills</h3>
+
+                        <!-- IT Support Essentials -->
+                        <div class="skill-item">
+                            <span class="skill-name">Networking & Troubleshooting</span>
+                            <span class="skill-percentage">89%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 89%;"></div>
+                        </div>
+
+                        <div class="skill-item">
+                            <span class="skill-name">Windows & OS Management</span>
+                            <span class="skill-percentage">72%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 72%;"></div>
+                        </div>
+
+                        <div class="skill-item">
+                            <span class="skill-name">Technical Support</span>
+                            <span class="skill-percentage">93%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 93%;"></div>
+                        </div>
+
+                        <!-- Programming Languages -->
+                        <div class="skill-item">
+                            <span class="skill-name">C</span>
+                            <span class="skill-percentage">90%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 90%;"></div>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">Python</span>
+                            <span class="skill-percentage">80%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 80%;"></div>
+                        </div>
+
+                        <div class="skill-item">
+                            <span class="skill-name">Java</span>
+                            <span class="skill-percentage">75%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 75%;"></div>
+                        </div>
+
+                        <div class="skill-item">
+                            <span class="skill-name">JavaScript</span>
+                            <span class="skill-percentage">88%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 88%;"></div>
+                        </div>
+
+                        <div class="skill-item">
+                            <span class="skill-name">PHP</span>
+                            <span class="skill-percentage">77%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 77%;"></div>
+                        </div>
+
+                        <!-- Design -->
+                        <div class="skill-item">
+                            <span class="skill-name">UI/UX Design</span>
+                            <span class="skill-percentage">50%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 50%;"></div>
+                        </div>
+                    </div>
+                </aside>
+
+                <!-- Main Content -->
+                <div class="content">
+                    <!-- About Section -->
+                    <section id="about" class="section">
+                        <h2 class="section-title">About Me</h2>
+                        <p class="about-text">
+                            Hi, I’m Khizha, a Magna Cum Laude graduate of Bachelor of Science in Information Technology
+                            at Caraga State
+                            University, with a growing passion
+                            for programming and problem-solving. I enjoy exploring programming languages, and
+                            continuously learning to enhance my skills to prepare for a future projects. My strengths
+                            include adaptability, attention to detail, and problem-solving in approaching challenges,
+                            and able
+                            to communicate with my peers thoroughly.
+                        </p>
+                        <p class="about-text">
+                            When I'm not coding, outside of
+                            tech stuff, my hobbies are playing games, watching my favorite series, movies, anime,
+                            playing bass
+                            guitar, and I love swimming. I value continuous learning, and using my knowledge to create
+                            meaningful solutions. I believe in the power of clean code and
+                            intuitive design to solve real-world problems and create meaningful user experiences.
+                        </p>
+
+                        <div class="stats-grid">
+                            <div class="stat-item">
+                                <span class="stat-number">2.3+</span>
+                                <span class="stat-label">Years Experience</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number">6+</span>
+                                <span class="stat-label">Projects Completed</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number">9+</span>
+                                <span class="stat-label">Certifications</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number">97%</span>
+                                <span class="stat-label">Client Satisfaction</span>
+                            </div>
+                        </div>
+                    </section>
+
+
+                    <!-- Experience Section -->
+                    <section id="experience" class="section">
+                        <h2 class="section-title">Experience</h2>
+                        <div class="timeline">
+                            <div class="timeline-item">
+                                <h3 class="job-title">Technical Support OJT Intern</h3>
+                                <p class="company">DICT Butuan Caraga</p>
+                                <p class="job-period">2025</p>
+                                <p class="job-description">
+                                    Assisted staff and clients with IT support needs, including troubleshooting hardware
+                                    and
+                                    software issues, setting up operating systems, and installing applications. Helped
+                                    configure
+                                    local area networks (LAN), performed routine system maintenance, and documented
+                                    support
+                                    requests. Worked under the guidance of senior IT staff to gain hands-on experience
+                                    in
+                                    providing reliable technical support and ensuring smooth daily operations.
+                                </p>
+                                <div class="tech-tags">
+                                    <span class="tech-tag">Windows</span>
+                                    <span class="tech-tag">Linux</span>
+                                    <span class="tech-tag">Networking & Security</span>
+                                    <span class="tech-tag">Troubleshooting</span>
+                                    <span class="tech-tag">Hands-On</span>
+                                </div>
+                            </div>
+
+                            <div class="timeline-item">
+                                <h3 class="job-title">IT Support Assistant</h3>
+                                <p class="company">Caraga State University – Student Helpdesk</p>
+                                <p class="job-period">2022 - 2023</p>
+                                <p class="job-description">
+                                    Provided IT support to students and faculty by troubleshooting hardware/software
+                                    issues,
+                                    installing applications, and assisting in network setup. Collaborated with senior
+                                    developers
+                                    to enhance technical solutions and participated in code reviews to ensure quality
+                                    standards. Supported IT staff during events by
+                                    setting up projectors, sound systems, and computer stations, and I assisted hardware
+                                    and technical issues in our computer labs.
+                                </p>
+                                <div class="tech-tags">
+                                    <span class="tech-tag">Helpdesk</span>
+                                    <span class="tech-tag">Troubleshoot</span>
+                                    <span class="tech-tag">Hardware & Software Support</span>
+                                    <span class="tech-tag">Set Up</span>
+                                </div>
+                            </div>
+
+                            <div class="timeline-item">
+                                <h3 class="job-title">Freelance Web Designer</h3>
+                                <p class="company">Self-Employed</p>
+                                <p class="job-period">2021 - 2022</p>
+                                <p class="job-description">
+                                    Created brand identities, UI/UX designs, and marketing materials for various
+                                    clients. Specialized in modern, minimalist design approaches and user-centered
+                                    design principles.
+                                </p>
+                                <div class="tech-tags">
+                                    <span class="tech-tag">Adobe PS</span>
+                                    <span class="tech-tag">Figma</span>
+                                    <span class="tech-tag">Canva</span>
+                                    <span class="tech-tag">Ibis Paint</span>
+                                </div>
+                            </div>
+
+                            <div class="timeline-item">
+                                <h3 class="job-title">Social Media Content Editor</h3>
+                                <p class="company">Freelance</p>
+                                <p class="job-period">2024 - Present</p>
+                                <p class="job-description">
+                                    As the Social Media Content Editor for our church, I created and curated engaging
+                                    content tailored to our congregation and community. I designed visually appealing
+                                    posts, publication materials, managed content calendars, and scheduled campaigns to
+                                    promote church events
+                                    and messages. I also analyzed audience engagement and feedback to optimize our
+                                    outreach, helping to strengthen our church’s online presence and foster a sense of
+                                    connection among members.
+                                </p>
+                                <div class="tech-tags">
+                                    <span class="tech-tag">Content Creation</span>
+                                    <span class="tech-tag">Canva</span>
+                                    <span class="tech-tag">Marketing</span>
+                                    <span class="tech-tag">Social Media</span>
+                                </div>
+                            </div>
+
+                            <div class="timeline-item">
+                                <h3 class="job-title">Service Crew | Food Server</h3>
+                                <p class="company">Cheat Time Butuan Bakeshoppe</p>
+                                <p class="job-period">2022- 2023</p>
+                                <p class="job-description">
+                                    Delivered excellent customer service by taking orders, preparing food, and
+                                    maintaining cleanliness. Learned teamwork, multitasking, and time management
+                                    in a fast-paced environment while ensuring customer satisfaction.
+                                </p>
+                                <div class="tech-tags">
+                                    <span class="tech-tag">Customer Service</span>
+                                    <span class="tech-tag">Teamwork</span>
+                                    <span class="tech-tag">Time Management</span>
+                                    <span class="tech-tag">Communication</span>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Projects Section -->
+                    <section id="projects" class="section">
+                        <h2 class="section-title">Featured Projects</h2>
+                        <div class="projects-grid">
+
+                            <div class="project-card">
+                                <h3 class="project-title">Help Desk | Laravel Version</h3>
+                                <p class="project-description">
+                                    Help Desk is a Laravel-based project that lets you manage your support tickets
+                                    and communicate with your customers on a clean and efficient platform.
+                                </p>
+                                <div class="tech-tags">
+                                    <span class="tech-tag">Laravel/PHP</span>
+                                    <span class="tech-tag">TailWind CSS</span>
+                                    <span class="tech-tag">JavaScript</span>
+                                    <span class="tech-tag">MySQL</span>
+                                </div>
+                                <div class="project-links">
+                                    <a href="https://github.com/devaslanphp/project-management" class="project-link"
+                                        title="GitHub"><i class="fab fa-github"></i></a>
+                                    <a href="https://devaslanphp.github.io/project-management/#/?id=introduction"
+                                        class="project-link" title="Live Demo"><i
+                                            class="fas fa-external-link-alt"></i></a>
+                                </div>
+                            </div>
+
+                            <div class="project-card">
+                                <h3 class="project-title">My Personal E-Portfolio Website</h3>
+                                <p class="project-description">
+                                    A responsive e-portfolio website built with HTML and modern CSS. Features smooth
+                                    animations,
+                                    particle effects, optimized performance, and a seamless user experience across
+                                    devices.
+                                </p>
+                                <div class="tech-tags">
+                                    <span class="tech-tag">React</span>
+                                    <span class="tech-tag">CSS3</span>
+                                    <span class="tech-tag">JavaScript</span>
+                                    <span class="tech-tag">Particles.js</span>
+                                </div>
+                                <div class="project-links">
+                                    <a href="#" class="project-link" title="GitHub"><i class="fab fa-github"></i></a>
+                                    <a href="#" class="project-link" title="Live Demo"><i
+                                            class="fas fa-external-link-alt"></i></a>
+                                </div>
+                            </div>
+
+                            <div class="project-card">
+                                <h3 class="project-title">Network Monitoring Dashboard</h3>
+                                <p class="project-description">
+                                    A real-time dashboard that monitors network health, uptime, and device connectivity.
+                                    Tracks routers, switches, and servers to help administrators identify and resolve
+                                    issues quickly.
+                                </p>
+                                <div class="tech-tags">
+                                    <span class="tech-tag">C/C++</span>
+                                    <span class="tech-tag">Python</span>
+                                    <span class="tech-tag">Kotlin</span>
+                                    <span class="tech-tag">Networking Tools</span>
+                                </div>
+                                <div class="project-links">
+                                    <a href="https://github.com/blacksnowmartin/Network-Monitoring-Dashboard"
+                                        class="project-link" title="GitHub"><i class="fab fa-github"></i></a>
+                                </div>
+                            </div>
+
+                            <div class="project-card">
+                                <h3 class="project-title">Windows Maintenance Script (PowerShell)</h3>
+                                <p class="project-description">
+                                    A PowerShell script to automate Windows maintenance tasks including disk cleanup,
+                                    software updates, and system monitoring. Simplifies management and boosts
+                                    performance.
+                                </p>
+                                <div class="tech-tags">
+                                    <span class="tech-tag">PowerShell</span>
+                                    <span class="tech-tag">Windows</span>
+                                    <span class="tech-tag">Automation</span>
+                                </div>
+                                <div class="project-links">
+                                    <a href="https://github.com/Envisational/Windows-Maintenance-Script"
+                                        class="project-link" title="GitHub"><i class="fab fa-github"></i></a>
+                                </div>
+                            </div>
+
+                        </div>
+                    </section>
+
+
+                    <!-- Certifications & Achievements Section -->
+                    <section id="certifications" class="section">
+                        <h2 class="section-title">Certifications & Achievements</h2>
+                        <div class="timeline">
+
+                            <!-- Technical Support / IT Certifications -->
+                            <div class="timeline-item">
+                                <h3 class="job-title">Google IT Support Professional Certificate</h3>
+                                <p class="company">Google | Coursera</p>
+                                <p class="job-period">2025</p>
+                                <p class="job-description">
+                                    Completed the Google IT Support program covering troubleshooting, networking,
+                                    operating systems, system administration, and IT security.
+                                </p>
+                            </div>
+
+                            <div class="timeline-item">
+                                <h3 class="job-title">CompTIA A+ Certification</h3>
+                                <p class="company">CompTIA</p>
+                                <p class="job-period">2025</p>
+                                <p class="job-description">
+                                    Earned industry-recognized certification validating hardware, software, networking,
+                                    and troubleshooting skills essential for IT support roles.
+                                </p>
+                            </div>
+
+                            <div class="timeline-item">
+                                <h3 class="job-title">Google Developer Festival (DevFest)</h3>
+                                <p class="company">Google Developers Group</p>
+                                <p class="job-period">2025</p>
+                                <p class="job-description">
+                                    Participated in Google DevFest, gaining insights into cloud computing,
+                                    software development, and emerging IT technologies.
+                                </p>
+                            </div>
+
+                            <div class="timeline-item">
+                                <h3 class="job-title">Python, HTML, CSS & JavaScript Certification</h3>
+                                <p class="company">SoloLearn</p>
+                                <p class="job-period">2023</p>
+                                <p class="job-description">
+                                    Completed beginner-to-intermediate coding courses that strengthened my
+                                    programming foundation and improved problem-solving abilities.
+                                </p>
+                            </div>
+
+                            <!-- Trainings & Workshops -->
+                            <div class="timeline-item">
+                                <h3 class="job-title">Basic Computer Troubleshooting & Networking Workshop</h3>
+                                <p class="company">CCIS | Caraga State University</p>
+                                <p class="job-period">2023</p>
+                                <p class="job-description">
+                                    Hands-on workshop covering diagnostics, PC assembly, system maintenance,
+                                    and LAN setup for student technicians.
+                                </p>
+                            </div>
+
+                            <div class="timeline-item">
+                                <h3 class="job-title">Microsoft Office Productivity Training</h3>
+                                <p class="company">DICT Caraga</p>
+                                <p class="job-period">2024</p>
+                                <p class="job-description">
+                                    Training in Word, Excel, PowerPoint, and Outlook for professional and
+                                    organizational productivity tasks.
+                                </p>
+                            </div>
+
+                            <div class="timeline-item">
+                                <h3 class="job-title">Cybersecurity Fundamentals Training</h3>
+                                <p class="company">DICT Cybersecurity Bureau</p>
+                                <p class="job-period">2025</p>
+                                <p class="job-description">
+                                    Introduction to cybersecurity threats, safe computing practices,
+                                    and incident response for IT support environments.
+                                </p>
+                            </div>
+
+                            <!-- Other Certifications -->
+                            <div class="timeline-item">
+                                <h3 class="job-title">Emergency First Aid & Standard First Aid Training</h3>
+                                <p class="company">Red Cross Youth & CSU Emergency Response Team</p>
+                                <p class="job-period">2021 - 2025</p>
+                                <p class="job-description">
+                                    Trained in emergency response, first aid, and disaster preparedness
+                                    to ensure workplace and community safety.
+                                </p>
+                            </div>
+
+                            <div class="timeline-item">
+                                <h3 class="job-title">Leadership & Team Building Seminar</h3>
+                                <p class="company">Caraga State University</p>
+                                <p class="job-period">2024</p>
+                                <p class="job-description">
+                                    Developed leadership, communication, and problem-solving skills
+                                    through interactive workshops and group activities.
+                                </p>
+                            </div>
+
+                        </div>
+                    </section>
+
+                    <!-- References Section -->
+                    <section id="references" class="section">
+                        <h2 class="section-title">References</h2>
+                        <div class="timeline">
+                            <div class="timeline-item">
+                                <h3 class="job-title">Jesterlyn Q. Timosan</h3>
+                                <p class="company">CCIS Associate Dean, Caraga State University</p>
+                                <p class="job-period">📧 timosanjesterlyn@gmail.com</p>
+                            </div>
+
+                            <div class="timeline-item">
+                                <h3 class="job-title">Nylson James B. Villaflor</h3>
+                                <p class="company">Professor, Caraga State University</p>
+                                <p class="job-period">📧 nylsonjvillaflor@gmail.com</p>
+                            </div>
+
+                            <div class="timeline-item">
+                                <h3 class="job-title">Medelyn Paqueo</h3>
+                                <p class="company">Instructor II, Agusan National High School</p>
+                                <p class="job-period">📧 paqueo.medelyn@gmail.com</p>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Client Satisfaction Section -->
+                    <section id="satisfaction" class="section">
+                        <h2 class="section-title">Client & Peer Satisfaction</h2>
+                        <div class="projects-grid">
+
+                            <div class="project-card">
+                                <h3 class="project-title">Technical Support Intern – DICT Butuan Caraga</h3>
+                                <p class="project-description">
+                                    Assisted staff and clients with troubleshooting, networking, and system maintenance.
+                                    Earned positive feedback for quick response times and reliable solutions.
+                                </p>
+                                <p class="job-description"><strong>Feedback:</strong> “Khizha was dependable and always
+                                    eager to solve issues efficiently.”</p>
+                                <p>⭐⭐⭐⭐⭐ (96% Satisfaction)</p>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" style="width: 96%;"></div>
+                                </div>
+                            </div>
+
+                            <div class="project-card">
+                                <h3 class="project-title">IT Support Assistant – CSU Helpdesk</h3>
+                                <p class="project-description">
+                                    Helped students and faculty resolve software/hardware issues and provided setup
+                                    support
+                                    during academic events. Maintained 90%+ resolution rate on reported issues.
+                                </p>
+                                <p class="job-description"><strong>Feedback:</strong> “Consistently reliable with
+                                    troubleshooting and very approachable.”</p>
+                                <p>⭐⭐⭐⭐ (92% Satisfaction)</p>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" style="width: 92%;"></div>
+                                </div>
+                            </div>
+
+                            <div class="project-card">
+                                <h3 class="project-title">Freelance Web Designer</h3>
+                                <p class="project-description">
+                                    Designed websites and UI/UX layouts for small businesses and student projects.
+                                    Delivered projects on time with a modern, professional look.
+                                </p>
+                                <p class="job-description"><strong>Feedback:</strong> “Creative and detail-oriented,
+                                    delivering polished results every time.”</p>
+                                <p>⭐⭐⭐⭐ (90% Satisfaction)</p>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" style="width: 90%;"></div>
+                                </div>
+                            </div>
+
+                            <div class="project-card">
+                                <h3 class="project-title">Social Media Content Creator</h3>
+                                <p class="project-description">
+                                    Produced and managed posts for small brands, improving their visibility and
+                                    engagement
+                                    through consistent content planning.
+                                </p>
+                                <p class="job-description"><strong>Feedback:</strong> “Boosted our page engagement and
+                                    gave us a professional online presence.”</p>
+                                <p>⭐⭐⭐⭐⭐ (97% Satisfaction)</p>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" style="width: 97%;"></div>
+                                </div>
+                            </div>
+
+                            <div class="project-card">
+                                <h3 class="project-title">Service Crew – Fast-Food Industry</h3>
+                                <p class="project-description">
+                                    Gained strong teamwork and customer service skills in a fast-paced environment,
+                                    ensuring positive dining experiences for customers.
+                                </p>
+                                <p class="job-description"><strong>Feedback:</strong> “Always courteous and efficient,
+                                    keeping customer satisfaction a priority.”</p>
+                                <p>⭐⭐⭐⭐⭐ (95% Satisfaction)</p>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" style="width: 95%;"></div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </section>
+
+
+                    <!-- Contact Section -->
+                    <section id="contact" class="section">
+                        <h2 class="section-title">Get In Touch</h2>
+                        <p class="about-text" style="margin-bottom: 30px;">
+                            I'm always interested in hearing about new opportunities and exciting projects.
+                            Whether you have a question or just want to say hi, feel free to reach out!
+                        </p>
+
+                        <form class="contact-form">
+                            <div class="form-group">
+                                <label for="name">Name</label>
+                                <input type="text" id="name" name="name" placeholder="Your Name" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input type="email" id="email" name="email" placeholder="your@email.com" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="message">Message</label>
+                                <textarea id="message" name="message" rows="5" placeholder="Your message..."
+                                    required></textarea>
+                            </div>
+
+                            <button type="submit" class="submit-btn">Send Message</button>
+                        </form>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Particles.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js"></script>
+    <script>
+        // Particles.js configuration
+        particlesJS('particles-js', {
+            particles: {
+                number: { value: 80, density: { enable: true, value_area: 800 } },
+                color: { value: '#64ffda' },
+                shape: {
+                    type: 'circle',
+                    stroke: { width: 0, color: '#000000' },
+                },
+                opacity: {
+                    value: 0.5,
+                    random: false,
+                    anim: { enable: false, speed: 1, opacity_min: 0.1, sync: false }
+                },
+                size: {
+                    value: 3,
+                    random: true,
+                    anim: { enable: false, speed: 40, size_min: 0.1, sync: false }
+                },
+                line_linked: {
+                    enable: true,
+                    distance: 150,
+                    color: '#64ffda',
+                    opacity: 0.4,
+                    width: 1
+                },
+                move: {
+                    enable: true,
+                    speed: 6,
+                    direction: 'none',
+                    random: false,
+                    straight: false,
+                    out_mode: 'out',
+                    bounce: false,
+                    attract: { enable: false, rotateX: 600, rotateY: 1200 }
+                }
+            },
+            interactivity: {
+                detect_on: 'canvas',
+                events: {
+                    onhover: { enable: true, mode: 'repulse' },
+                    onclick: { enable: true, mode: 'push' },
+                    resize: true
+                },
+                modes: {
+                    grab: { distance: 400, line_linked: { opacity: 1 } },
+                    bubble: { distance: 400, size: 40, duration: 2, opacity: 8, speed: 3 },
+                    repulse: { distance: 200, duration: 0.4 },
+                    push: { particles_nb: 4 },
+                    remove: { particles_nb: 2 }
+                }
+            },
+            retina_detect: true
+        });
+    </script>
+
+    <script>
+        // Scroll-in animation for project cards (satisfaction section)
+        const projectCards = document.querySelectorAll('.project-card');
+
+        const satisfactionObserver = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('show');
+                    satisfactionObserver.unobserve(entry.target); // animate once
+                }
+            });
+        }, { threshold: 0.2 });
+
+        projectCards.forEach(card => {
+            satisfactionObserver.observe(card);
+        });
+    </script>
+</body>
+
+</html>
