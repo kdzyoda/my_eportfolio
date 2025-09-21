@@ -536,6 +536,59 @@
             }
         }
 
+        .slider-container {
+            position: relative;
+            max-width: 500px;
+            margin: 30px auto;
+            text-align: center;
+        }
+
+        .slider img {
+            display: none;
+            max-width: 100%;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .slider img.active {
+            display: block;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+
+        .prev-btn,
+        .next-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: #333;
+            color: #fff;
+            border: none;
+            padding: 8px 16px;
+            cursor: pointer;
+            border-radius: 50%;
+        }
+
+        .prev-btn {
+            left: -50px;
+        }
+
+        .next-btn {
+            right: -50px;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: scale(0.95);
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+
         /* Smooth animations */
         @keyframes fadeInUp {
             from {
@@ -962,12 +1015,15 @@
                             </div>
 
                             <div class="timeline-item">
-                                <h3 class="job-title">Google Developer Festival (DevFest)</h3>
-                                <p class="company">Google Developers Group</p>
-                                <p class="job-period">2025</p>
+                                <h3 class="job-title">Google Developer Festival (DevFest) Cagayan De Oro</h3>
+                                <p class="company">Google Developers Group | CDO</p>
+                                <p class="job-period">2024</p>
                                 <p class="job-description">
                                     Participated in Google DevFest, gaining insights into cloud computing,
-                                    software development, and emerging IT technologies.
+                                    software development, and emerging IT technologies. Experience collaboration,
+                                    knowledge sharing, and hands-on activities with Google products and APIs. We'll
+                                    cover everything from web development and app creation to machine learning and cloud
+                                    solutions.
                                 </p>
                             </div>
 
@@ -1032,7 +1088,19 @@
                                     through interactive workshops and group activities.
                                 </p>
                             </div>
+                        </div>
 
+                        <!-- Slider (Image Certificates) -->
+                        <div class="slider-container">
+                            <div class="slider">
+                                <img src="googleitsupport.png" alt="Google IT Support Certificate" class="slide active">
+                                <img src="comptiaa+.png" alt="CompTIA A+ Certificate" class="slide">
+                                <img src="devfest.png" alt="Google DevFest Certificate" class="slide">
+                                <img src="basiccomputer.png" alt="Basic Networking and Troubleshooting Certificate"
+                                    class="slide">
+                            </div>
+                            <button class="prev-btn">&lt;</button>
+                            <button class="next-btn">&gt;</button>
                         </div>
                     </section>
 
@@ -1141,7 +1209,6 @@
                     </section>
 
 
-                    <!-- Contact Section -->
                     <!-- Contact Section -->
                     <section id="contact" class="section">
                         <h2 class="section-title">Contact Me</h2>
@@ -1290,6 +1357,28 @@
             satisfactionObserver.observe(card);
         });
     </script>
+
+    <script>
+        const images = document.querySelectorAll('.slider img');
+        let index = 0;
+
+        function showImage(i) {
+            images.forEach((img, idx) => {
+                img.classList.toggle('active', idx === i);
+            });
+        }
+
+        document.querySelector('.next-btn').addEventListener('click', () => {
+            index = (index + 1) % images.length;
+            showImage(index);
+        });
+
+        document.querySelector('.prev-btn').addEventListener('click', () => {
+            index = (index - 1 + images.length) % images.length;
+            showImage(index);
+        });
+    </script>
+
 </body>
 
 </html>
