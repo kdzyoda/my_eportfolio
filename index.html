@@ -16,7 +16,6 @@
             box-sizing: border-box;
         }
 
-        
         body {
             width: 100%;
             overflow-x: hidden;
@@ -30,13 +29,15 @@
         /* Particles Background */
         #particles-js {
             position: fixed;
-            width: 100%;
+            width: 100vw;
+            /* fix horizontal overflow */
             height: 100%;
             top: 0;
             left: 0;
             z-index: -1;
             background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
         }
+
 
         /* Container */
         .container {
@@ -88,7 +89,7 @@
         .nav-links a {
             color: #fff;
             text-decoration: none;
-            font-weight: 600;
+            font-weight: 660;
             position: relative;
             transition: color 0.3s ease;
         }
@@ -536,7 +537,6 @@
         }
 
 
-
         /* Responsive Design */
         @media (max-width: 768px) {
             .content-grid {
@@ -648,6 +648,13 @@
 
         ::-webkit-scrollbar-thumb:hover {
             background: #4fd1c7;
+        }
+
+        footer {
+            width: 100vw;
+            /* match viewport width exactly */
+            overflow-x: hidden;
+            /* prevent footer itself from spilling */
         }
     </style>
 </head>
@@ -1465,29 +1472,29 @@
     </script>
 
     <!-- Footer Disclaimer -->
-<footer style="background: rgba(255, 255, 255, 0.03); 
+    <footer style="background: rgba(255, 255, 255, 0.03); 
                border-top: 1px solid rgba(255, 255, 255, 0.1); 
                text-align: center; 
                padding: 25px 0; 
-               font-size: 17px; 
+               font-size: 18px; 
                color: #ccc; 
                margin-top: 60px;
                width: 100%;">
-    <div style="max-width: 1200px; margin: 0 auto; padding: 0 15px;">
-        <p style="margin-bottom: 6px; line-height: 1.6;">
-            This e-portfolio is intended for professional and academic purposes only.
-            It does not contain sensitive personal information such as government IDs,
-            residential addresses, or confidential data.
-        </p>
-        <p style="margin-bottom: 10px; line-height: 1.6;">
-            All references are listed with prior consent and in compliance with
-            <span style="color:#64ffda; font-weight:500;">RA 10173 (Data Privacy Act of 2012)</span>.
-        </p>
-        <p style="margin-top: 5px; color: #888;">
-            © 2025 <span style="color:#64ffda; font-weight:500;">Khizha Duquesa</span> | All Rights Reserved
-        </p>
-    </div>
-</footer>
+        <div style="max-width: 1200px; margin: 0 auto; padding: 0 15px;">
+            <p style="margin-bottom: 6px; line-height: 1.6;">
+                This e-portfolio is intended for professional and academic purposes only.
+                It does not contain sensitive personal information such as government IDs,
+                residential addresses, or confidential data.
+            </p>
+            <p style="margin-bottom: 10px; line-height: 1.6;">
+                All references are listed with prior consent and in compliance with
+                <span style="color:#64ffda; font-weight:500;">RA 10173 (Data Privacy Act of 2012)</span>.
+            </p>
+            <p style="margin-top: 5px; color: #888;">
+                © 2025 <span style="color:#64ffda; font-weight:500;">Khizha Duquesa</span> | All Rights Reserved
+            </p>
+        </div>
+    </footer>
 
 </body>
 
