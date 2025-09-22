@@ -16,7 +16,10 @@
             box-sizing: border-box;
         }
 
+        
         body {
+            width: 100%;
+            overflow-x: hidden;
             font-family: 'Poppins', sans-serif;
             background: #0a0a0a;
             color: #ffffff;
@@ -69,7 +72,7 @@
 
         .logo {
             font-size: 24px;
-            font-weight: 700;
+            font-weight: 770;
             color: #64ffda;
             white-space: nowrap;
         }
@@ -85,7 +88,7 @@
         .nav-links a {
             color: #fff;
             text-decoration: none;
-            font-weight: 400;
+            font-weight: 600;
             position: relative;
             transition: color 0.3s ease;
         }
@@ -108,30 +111,6 @@
         .nav-links a:hover::after {
             width: 100%;
         }
-
-        /* Mobile responsiveness */
-        @media screen and (max-width: 768px) {
-            .nav {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-
-            .left-group {
-                margin-right: 0;
-                margin-bottom: 10px;
-            }
-
-            .nav-links {
-                flex-wrap: wrap;
-                width: 100%;
-                gap: 15px;
-            }
-
-            .nav-links li a {
-                font-size: 16px;
-            }
-        }
-
 
 
         /* Main Content */
@@ -1485,26 +1464,30 @@
         fadeCards.forEach(card => observer.observe(card));
     </script>
 
-
     <!-- Footer Disclaimer -->
-    <footer style="background: rgba(255, 255, 255, 0.03); 
-                   border-top: 1px solid rgba(255, 255, 255, 0.1); 
-                   text-align: center; 
-                   padding: 25px 15px; 
-                   font-size: 17px; 
-                   color: #ccc; 
-                   margin-top: 60px;">
-        <p style="margin-bottom: 4px;">
+<footer style="background: rgba(255, 255, 255, 0.03); 
+               border-top: 1px solid rgba(255, 255, 255, 0.1); 
+               text-align: center; 
+               padding: 25px 0; 
+               font-size: 17px; 
+               color: #ccc; 
+               margin-top: 60px;
+               width: 100%;">
+    <div style="max-width: 1200px; margin: 0 auto; padding: 0 15px;">
+        <p style="margin-bottom: 6px; line-height: 1.6;">
             This e-portfolio is intended for professional and academic purposes only.
             It does not contain sensitive personal information such as government IDs,
             residential addresses, or confidential data.
-            <br>All references are listed with prior consent and in compliance with
+        </p>
+        <p style="margin-bottom: 10px; line-height: 1.6;">
+            All references are listed with prior consent and in compliance with
             <span style="color:#64ffda; font-weight:500;">RA 10173 (Data Privacy Act of 2012)</span>.
         </p>
         <p style="margin-top: 5px; color: #888;">
             © 2025 <span style="color:#64ffda; font-weight:500;">Khizha Duquesa</span> | All Rights Reserved
         </p>
-    </footer>
+    </div>
+</footer>
 
 </body>
 
