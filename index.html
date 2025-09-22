@@ -46,37 +46,51 @@
         .header {
             position: sticky;
             top: 0;
-            background: rgba(10, 10, 10, 0.95);
-            backdrop-filter: blur(20px);
+            background: rgba(50, 50, 50, 0.6);
+            backdrop-filter: blur(30px);
             border-bottom: 1px solid #333;
             z-index: 1000;
-            padding: 15px 0;
+            padding: 13px 0;
         }
 
         .nav {
             display: flex;
-            justify-content: space-between;
             align-items: center;
+            justify-content: center;
+            /* center links */
+            width: 100%;
+            gap: 20px;
+        }
+
+        /* Left logo/email group */
+        .left-group {
+            display: flex;
+            align-items: center;
+            margin-right: auto;
+            /* pushes nav-links to center */
         }
 
         .logo {
             font-size: 24px;
             font-weight: 700;
             color: #64ffda;
+            white-space: nowrap;
         }
 
+        /* Navigation links */
         .nav-links {
             display: flex;
             list-style: none;
-            gap: 30px;
+            gap: 28px;
+            margin: 0;
         }
 
         .nav-links a {
-            color: #ffffff;
+            color: #fff;
             text-decoration: none;
             font-weight: 400;
-            transition: color 0.3s ease;
             position: relative;
+            transition: color 0.3s ease;
         }
 
         .nav-links a:hover {
@@ -98,7 +112,31 @@
             width: 100%;
         }
 
-        
+        /* Mobile responsiveness */
+        @media screen and (max-width: 768px) {
+            .nav {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .left-group {
+                margin-right: 0;
+                margin-bottom: 10px;
+            }
+
+            .nav-links {
+                flex-wrap: wrap;
+                width: 100%;
+                gap: 15px;
+            }
+
+            .nav-links li a {
+                font-size: 16px;
+            }
+        }
+
+
+
         /* Main Content */
         .main {
             padding: 60px 0;
@@ -644,7 +682,9 @@
     <!-- Header -->
     <header class="header">
         <nav class="nav container">
-            <div class="logo">@khizha.xyz</div>
+            <div class="left-group">
+                <div class="logo">@khizha.xyz</div>
+            </div>
             <ul class="nav-links">
                 <li><a href="#about">About</a></li>
                 <li><a href="#experience">Experience</a></li>
@@ -657,6 +697,7 @@
             </ul>
         </nav>
     </header>
+
 
     <!-- Main Content -->
     <main class="main">
